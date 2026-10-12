@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register — IZIC 2026</title>
+    <link rel="icon" href="https://zda.org.zm/izic/wp-content/uploads/2026/01/cropped-IZIC-Event-Logo-files-01-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="register">
+    <div data-site-header></div>
+    <main id="main">
+      <section class="page-hero">
+        <div class="wrap">
+          <p class="eyebrow">Register</p>
+          <h1>Join IZIC 2026 in Lusaka</h1>
+          <p>9–11 December 2026 · Mulungushi International Conference Centre (KKICC Wing)</p>
+        </div>
+      </section>
+      <section class="section">
+        <div class="wrap register-grid">
+          <div>
+            <h2>Who should register</h2>
+            <ul>
+              <li>Investors and financiers</li>
+              <li>Project developers and exhibitors</li>
+              <li>Policymakers and development partners</li>
+              <li>Local enterprises seeking partnerships</li>
+            </ul>
+            <p>
+              Existing confirmed registrations for the former July dates remain valid for December 9–11. No re-registration is required for already confirmed delegates.
+            </p>
+            <div class="cta-row">
+              <a class="btn btn-secondary" href="partnership.html">Become a partner</a>
+              <a class="btn btn-secondary" href="contact.html">Ask the secretariat</a>
+            </div>
+          </div>
+          <form class="register-form" id="register-form">
+            <h2>Expression of interest</h2>
+            <label>Full name<input type="text" name="name" required /></label>
+            <label>Organisation<input type="text" name="org" required /></label>
+            <label>Email<input type="email" name="email" required /></label>
+            <label>Country<input type="text" name="country" required /></label>
+            <label>Participation type
+              <select name="type" required>
+                <option value="">Select…</option>
+                <option>Delegate</option>
+                <option>Exhibitor</option>
+                <option>Sponsor / Partner</option>
+                <option>Media</option>
+              </select>
+            </label>
+            <label>Message<textarea name="message" rows="4" placeholder="Tell us briefly about your interest"></textarea></label>
+            <button class="btn btn-primary" type="submit">Submit interest</button>
+            <p class="form-note" data-form-note hidden>Thank you — your interest has been recorded locally for this demo redesign. Contact izic@zda.org.zm to complete official registration.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+    <div data-site-footer></div>
+    <script src="shared.js"></script>
+    <script src="main.js"></script>
+    <script>
+      document.getElementById("register-form")?.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const note = document.querySelector("[data-form-note]");
+        if (note) note.hidden = false;
+        e.target.reset();
+      });
+    </script>
+  </body>
+</html>

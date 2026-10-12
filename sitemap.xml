@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>./index.html</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>./about.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>./schedule.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>./partnership.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>./speakers.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>./awards.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>./gallery.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>./projects.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>./sectors.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>./incentives.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>./business.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>./stories.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>./publications.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>./presentations.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>./news.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>./videos.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>./travel.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>./map.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>./visas.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>./tourism.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>./app.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>./contact.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>./register.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>./sitemap.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+</urlset>

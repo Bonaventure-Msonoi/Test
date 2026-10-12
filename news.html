@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News & Press — IZIC 2026</title>
+    <link rel="icon" href="https://zda.org.zm/izic/wp-content/uploads/2026/01/cropped-IZIC-Event-Logo-files-01-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="news">
+    <div data-site-header></div>
+    <main id="main">
+      <section class="page-hero">
+        <div class="wrap">
+          <p class="eyebrow">News & Press</p>
+          <h1>Event news & notices</h1>
+          <p>Select a card for the full briefing.</p>
+        </div>
+      </section>
+      <section class="section">
+        <div class="wrap info-card-grid">
+          <button type="button" class="info-card" data-card-open="postponement">
+            <img src="https://zda.org.zm/izic/wp-content/uploads/2026/01/cropped-IZIC-Event-Logo-files-01.png" alt="" />
+            <div>
+              <time datetime="2026-04-29">29 Apr 2026</time>
+              <h2>IZIC 2026 postponed to 9–11 December 2026</h2>
+              <p>Revised dates · registrations remain valid</p>
+              <span class="info-card-cta">Read notice</span>
+            </div>
+          </button>
+          <button type="button" class="info-card" data-card-open="china-seminar">
+            <img src="https://zda.org.zm/izic/wp-content/uploads/2026/01/izic_zda_dg-1-768x660.jpg" alt="" />
+            <div>
+              <time datetime="2026-01-15">15 Jan 2026</time>
+              <h2>China–Zambia Investment Cooperation Seminar</h2>
+              <p>Strategic MoUs signed at IZIC 2025</p>
+              <span class="info-card-cta">Read story</span>
+            </div>
+          </button>
+          <button type="button" class="info-card" data-card-open="wonderful-group">
+            <img src="https://zda.org.zm/izic/wp-content/uploads/2026/01/DSC_5869-1-scaled-1-768x660.webp" alt="" />
+            <div>
+              <time datetime="2026-01-15">15 Jan 2026</time>
+              <h2>Wonderful Group sponsors K1 million</h2>
+              <p>Private-sector confidence in the IZIC platform</p>
+              <span class="info-card-cta">Read story</span>
+            </div>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <div class="story-modal" id="card-modal" hidden role="dialog" aria-modal="true" aria-labelledby="card-modal-title" data-card-modal>
+      <div class="story-modal-backdrop" data-card-close tabindex="-1"></div>
+      <div class="story-modal-panel" role="document">
+        <button type="button" class="story-modal-close" data-card-close aria-label="Close">×</button>
+        <div data-card-media>
+          <img class="story-modal-image" data-card-image alt="" />
+        </div>
+        <div class="story-modal-content">
+          <span class="story-modal-meta" data-card-meta></span>
+          <h2 id="card-modal-title" data-card-title></h2>
+          <div class="story-modal-body" data-card-body></div>
+        </div>
+      </div>
+    </div>
+
+    <template id="card-data-postponement">
+      <span data-meta>29 Apr 2026 · Official notice</span>
+      <span data-title>IZIC 2026 postponed to 9–11 December 2026</span>
+      <span data-image>https://zda.org.zm/izic/wp-content/uploads/2026/01/cropped-IZIC-Event-Logo-files-01.png</span>
+      <div data-body>
+        <p>Lusaka, Zambia. April 23, 2026 — The Zambia Development Agency informs partners, stakeholders and the public of the postponement of IZIC 2026, originally scheduled for 15–17 July 2026. The event will now take place from 9–11 December 2026 at Mulungushi International Conference Centre (KKICC Wing).</p>
+        <p>The revised dates follow consultations with key stakeholders and are intended to enable broader international participation and deeper high-level engagement.</p>
+        <p><strong>Assurances:</strong> existing sponsorship packages and confirmed delegate registrations remain valid for the December dates. For questions contact info@zda.org.zm.</p>
+        <p>Issued by Kwali Mfuni, Head of Communications and Public Relations.</p>
+      </div>
+    </template>
+    <template id="card-data-china-seminar">
+      <span data-meta>15 Jan 2026 · IZIC 2025</span>
+      <span data-title>China–Zambia Investment Cooperation Seminar — IZIC 2025</span>
+      <span data-image>https://zda.org.zm/izic/wp-content/uploads/2026/01/izic_zda_dg-1-768x660.jpg</span>
+      <div data-body>
+        <p>At the inaugural IZIC 2025, Zambia and China reaffirmed commitment to a resilient, high-quality partnership anchored on mutual benefit and sustainable development. Strategic MoUs were signed across key sectors, marking progress on mutual growth and technology transfer.</p>
+      </div>
+    </template>
+    <template id="card-data-wonderful-group">
+      <span data-meta>15 Jan 2026 · Sponsorship</span>
+      <span data-title>Wonderful Group sponsors K1 million for Zambia’s investment future</span>
+      <span data-image>https://zda.org.zm/izic/wp-content/uploads/2026/01/DSC_5869-1-scaled-1-768x660.webp</span>
+      <div data-body>
+        <p>Corporate partnership underscoring private-sector confidence in the IZIC platform as Zambia hosted the inaugural Invest in Zambia International Conference in Lusaka.</p>
+      </div>
+    </template>
+
+    <div data-site-footer></div>
+    <script src="shared.js"></script>
+    <script src="main.js"></script>
+    <script src="cards.js"></script>
+  </body>
+</html>

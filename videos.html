@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Videos — IZIC 2026</title>
+    <link rel="icon" href="https://zda.org.zm/izic/wp-content/uploads/2026/01/cropped-IZIC-Event-Logo-files-01-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="videos">
+    <div data-site-header></div>
+    <main id="main">
+      <section class="page-hero">
+        <div class="wrap">
+          <p class="eyebrow">Press & Media</p>
+          <h1>Videos</h1>
+          <p>Watch IZIC and Zambia investment highlights. Click a card to play.</p>
+        </div>
+      </section>
+      <section class="section">
+        <div class="wrap video-card-grid">
+          <button type="button" class="video-card" data-video-open="2tEPxh95ZSk">
+            <img src="https://img.youtube.com/vi/2tEPxh95ZSk/hqdefault.jpg" alt="" />
+            <div>
+              <span class="video-play" aria-hidden="true">▶</span>
+              <h2>Invest-Zambia International Conference 2025</h2>
+              <p>Official IZIC 2025 conference feature · ZDA / PromoteZambia</p>
+            </div>
+          </button>
+          <button type="button" class="video-card" data-video-open="xC7OhoXnLu0">
+            <img src="https://img.youtube.com/vi/xC7OhoXnLu0/hqdefault.jpg" alt="" />
+            <div>
+              <span class="video-play" aria-hidden="true">▶</span>
+              <h2>Land-Linked Zambia 2025 — Press Briefing</h2>
+              <p>Conference press briefing on Zambia’s trade and logistics agenda</p>
+            </div>
+          </button>
+          <button type="button" class="video-card" data-video-open="IaXNsVVw4a8">
+            <img src="https://img.youtube.com/vi/IaXNsVVw4a8/hqdefault.jpg" alt="" />
+            <div>
+              <span class="video-play" aria-hidden="true">▶</span>
+              <h2>Financing Africa’s Trade Ambitions</h2>
+              <p>Land-Linked Zambia 2025 · financing and trade discussion</p>
+            </div>
+          </button>
+        </div>
+        <div class="wrap cta-row">
+          <a class="btn btn-secondary" href="https://www.youtube.com/@PromoteZambia" target="_blank" rel="noopener noreferrer">ZDA on YouTube</a>
+          <a class="btn btn-secondary" href="gallery.html">Photo gallery</a>
+        </div>
+      </section>
+    </main>
+
+    <div class="story-modal video-modal" hidden role="dialog" aria-modal="true" aria-label="Video player" data-video-modal>
+      <div class="story-modal-backdrop" data-video-close tabindex="-1"></div>
+      <div class="story-modal-panel video-modal-panel" role="document">
+        <button type="button" class="story-modal-close" data-video-close aria-label="Close video">×</button>
+        <div class="video-frame-wrap">
+          <iframe data-video-frame title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div data-site-footer></div>
+    <script src="shared.js"></script>
+    <script src="main.js"></script>
+    <script src="cards.js"></script>
+  </body>
+</html>

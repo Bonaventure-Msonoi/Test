@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ready to Invest Projects — IZIC 2026</title>
+    <link rel="icon" href="https://zda.org.zm/izic/wp-content/uploads/2026/01/cropped-IZIC-Event-Logo-files-01-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="projects">
+    <div data-site-header></div>
+    <main id="main">
+      <section class="page-hero">
+        <div class="wrap">
+          <p class="eyebrow">Ready to Invest</p>
+          <h1>Bankable projects</h1>
+          <p>Open a sector card for the project pipeline.</p>
+        </div>
+      </section>
+      <section class="section">
+        <div class="wrap info-card-grid">
+          <button type="button" class="info-card" data-card-open="energy">
+            <img src="https://zda.org.zm/wp-content/uploads/2020/09/energy_sector.jpg" alt="" />
+            <div>
+              <span class="story-card-sector">Energy</span>
+              <h2>Energy projects</h2>
+              <p>Hydro, solar, hybrid and floating power</p>
+              <span class="info-card-cta">View projects</span>
+            </div>
+          </button>
+          <button type="button" class="info-card" data-card-open="manufacturing">
+            <img src="https://zda.org.zm/wp-content/uploads/2020/09/manufacturing_sector.jpg" alt="" />
+            <div>
+              <span class="story-card-sector">Manufacturing</span>
+              <h2>Manufacturing projects</h2>
+              <p>Agro-processing, materials and innovation</p>
+              <span class="info-card-cta">View projects</span>
+            </div>
+          </button>
+          <button type="button" class="info-card" data-card-open="infrastructure">
+            <img src="https://zda.org.zm/wp-content/uploads/2025/10/mining_.jpg" alt="" />
+            <div>
+              <span class="story-card-sector">Infrastructure</span>
+              <h2>Infrastructure projects</h2>
+              <p>Ports, highways and logistics corridors</p>
+              <span class="info-card-cta">View projects</span>
+            </div>
+          </button>
+          <button type="button" class="info-card" data-card-open="tourism">
+            <img src="https://zda.org.zm/wp-content/uploads/2020/09/tourism_sector.jpg" alt="" />
+            <div>
+              <span class="story-card-sector">Tourism</span>
+              <h2>Tourism projects</h2>
+              <p>Hospitality and destination investment</p>
+              <span class="info-card-cta">View projects</span>
+            </div>
+          </button>
+        </div>
+        <div class="wrap cta-row">
+          <a class="btn btn-primary" href="register.html">Register for deal rooms</a>
+          <a class="btn btn-secondary" href="sectors.html">Priority sectors</a>
+        </div>
+      </section>
+    </main>
+
+    <div class="story-modal" hidden role="dialog" aria-modal="true" aria-labelledby="card-modal-title" data-card-modal>
+      <div class="story-modal-backdrop" data-card-close tabindex="-1"></div>
+      <div class="story-modal-panel" role="document">
+        <button type="button" class="story-modal-close" data-card-close aria-label="Close">×</button>
+        <div data-card-media><img class="story-modal-image" data-card-image alt="" /></div>
+        <div class="story-modal-content">
+          <span class="story-modal-meta" data-card-meta></span>
+          <h2 id="card-modal-title" data-card-title></h2>
+          <div class="story-modal-body" data-card-body></div>
+        </div>
+      </div>
+    </div>
+
+    <template id="card-data-energy">
+      <span data-meta>Ready to invest · Energy</span>
+      <span data-title>Energy projects</span>
+      <span data-image>https://zda.org.zm/wp-content/uploads/2020/09/energy_sector.jpg</span>
+      <div data-body>
+        <ul>
+          <li>Lufubu Hydropower Project</li>
+          <li>Ngonye Falls Hydroelectric Project</li>
+          <li>71 MW Solar PV–Wind Hybrid Project</li>
+          <li>Zambia Copperbelt Renewable Energy Project</li>
+          <li>22.5 MW Kasima Solar PV Power Plant</li>
+          <li>ESM 1 Floating Solar Power</li>
+        </ul>
+      </div>
+    </template>
+    <template id="card-data-manufacturing">
+      <span data-meta>Ready to invest · Manufacturing</span>
+      <span data-title>Manufacturing projects</span>
+      <span data-image>https://zda.org.zm/wp-content/uploads/2020/09/manufacturing_sector.jpg</span>
+      <div data-body>
+        <ul>
+          <li>Eastern Tropical Fruits Project</li>
+          <li>Fig Tree Fruit Processing Project</li>
+          <li>Umlimi Char-Briquettes Project</li>
+          <li>Moringa Innovation Project</li>
+          <li>Refuse Bag Manufacturing Project</li>
+          <li>Entomo Farm (insect farming)</li>
+        </ul>
+      </div>
+    </template>
+    <template id="card-data-infrastructure">
+      <span data-meta>Ready to invest · Infrastructure</span>
+      <span data-title>Infrastructure projects</span>
+      <span data-image>https://zda.org.zm/wp-content/uploads/2025/10/mining_.jpg</span>
+      <div data-body>
+        <ul>
+          <li>In-Land Dry Ports</li>
+          <li>Overpass Road: Silverest to Mongu Road</li>
+          <li>Landless Corner to Mazabuka Highway Development</li>
+        </ul>
+      </div>
+    </template>
+    <template id="card-data-tourism">
+      <span data-meta>Ready to invest · Tourism</span>
+      <span data-title>Tourism projects</span>
+      <span data-image>https://zda.org.zm/wp-content/uploads/2020/09/tourism_sector.jpg</span>
+      <div data-body>
+        <ul>
+          <li>Three-Star Hotel (Mazabuka)</li>
+        </ul>
+      </div>
+    </template>
+
+    <div data-site-footer></div>
+    <script src="shared.js"></script>
+    <script src="main.js"></script>
+    <script src="cards.js"></script>
+  </body>
+</html>

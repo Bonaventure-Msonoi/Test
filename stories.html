@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Success Stories — IZIC 2026</title>
+    <link rel="icon" href="https://zda.org.zm/izic/wp-content/uploads/2026/01/cropped-IZIC-Event-Logo-files-01-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="stories">
+    <div data-site-header></div>
+    <main id="main">
+      <section class="page-hero">
+        <div class="wrap">
+          <p class="eyebrow">Success Stories</p>
+          <h1>Investment already taking shape</h1>
+          <p>Proof points from Zambia’s manufacturing, energy, and enterprise pipeline. Select a story for the full case.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrap stories-by-year">
+          <div class="year-block" data-reveal>
+            <header class="year-heading">
+              <span class="year-label">2024</span>
+              <p>Commissionings, ground-breaking, and capital actualisation</p>
+            </header>
+            <div class="story-card-grid">
+              <button
+                type="button"
+                class="story-card"
+                data-card-open="yash"
+                aria-haspopup="dialog"
+              >
+                <img
+                  src="https://zda.org.zm/izic/wp-content/uploads/2026/01/YASH-768x660.jpg"
+                  alt=""
+                />
+                <div class="story-card-body">
+                  <span class="story-card-sector">Manufacturing</span>
+                  <h2>Yash Pharmaceuticals Manufacturing</h2>
+                  <p>USD 45M expansion · 600 jobs · Lusaka</p>
+                  <span class="story-card-cta">View story</span>
+                </div>
+              </button>
+
+              <button
+                type="button"
+                class="story-card"
+                data-card-open="maamba"
+                aria-haspopup="dialog"
+              >
+                <img
+                  src="https://zda.org.zm/izic/wp-content/uploads/2026/01/WhatsApp-Image-2025-05-14-at-10.12.32_26448443-1024x683-1-768x660.jpg"
+                  alt=""
+                />
+                <div class="story-card-body">
+                  <span class="story-card-sector">Energy</span>
+                  <h2>Maamba Energy Ground Breaking</h2>
+                  <p>300 MW Phase II · USD 450M · Sinazongwe</p>
+                  <span class="story-card-cta">View story</span>
+                </div>
+              </button>
+
+              <button
+                type="button"
+                class="story-card"
+                data-card-open="bibagry"
+                aria-haspopup="dialog"
+              >
+                <img
+                  src="https://zda.org.zm/izic/wp-content/uploads/2026/01/Bibagry.jpeg-1024x768-1-768x660.jpg"
+                  alt=""
+                />
+                <div class="story-card-body">
+                  <span class="story-card-sector">Beverages</span>
+                  <h2>Bibagry Limited</h2>
+                  <p>USD 27M actualised · 125 jobs · Kitwe</p>
+                  <span class="story-card-cta">View story</span>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <div class="year-block" data-reveal>
+            <header class="year-heading">
+              <span class="year-label">2021</span>
+              <p>Commitments that continue to deliver</p>
+            </header>
+            <div class="story-card-grid">
+              <button
+                type="button"
+                class="story-card"
+                data-card-open="bibagry-2021"
+                aria-haspopup="dialog"
+              >
+                <img
+                  src="https://zda.org.zm/izic/wp-content/uploads/2026/01/Bibagry.jpeg-1024x768-1-768x660.jpg"
+                  alt=""
+                />
+                <div class="story-card-body">
+                  <span class="story-card-sector">Beverages</span>
+                  <h2>Bibagry Limited — Investment Commitment</h2>
+                  <p>USD 30M pledged · Copperbelt expansion</p>
+                  <span class="story-card-cta">View story</span>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div
+      class="story-modal"
+      id="story-modal"
+      hidden
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="card-modal-title"
+      data-card-modal
+    >
+      <div class="story-modal-backdrop" data-card-close tabindex="-1"></div>
+      <div class="story-modal-panel" role="document">
+        <button type="button" class="story-modal-close" data-card-close aria-label="Close story">
+          <span aria-hidden="true">×</span>
+        </button>
+        <div data-card-media>
+          <img class="story-modal-image" data-card-image alt="" />
+        </div>
+        <div class="story-modal-content">
+          <span class="story-modal-meta" data-card-meta></span>
+          <h2 id="card-modal-title" data-card-title></h2>
+          <div class="story-modal-body" data-card-body></div>
+        </div>
+      </div>
+    </div>
+
+    <template id="card-data-yash">
+      <span data-meta>2024 · Manufacturing · Lusaka</span>
+      <span data-title>Yash Pharmaceuticals Manufacturing</span>
+      <span data-image>https://zda.org.zm/izic/wp-content/uploads/2026/01/YASH-768x660.jpg</span>
+      <div data-body>
+        <p>
+          PDV Metals was commissioned on 7 November 2024 by President Hakainde
+          Hichilema. The project commenced operations within 11 months of
+          registration with the Agency, actualised USD 130 million — almost
+          double the committed investment — and created 300 jobs.
+        </p>
+        <p>
+          The expansion project was completed and commissioned in 2024 with an
+          investment value of USD 45 million and created 600 jobs. Monthly
+          production capacity rose to 160 million tablets, 200 million capsules,
+          and 2.4 million bottles of dry powders.
+        </p>
+      </div>
+    </template>
+
+    <template id="card-data-maamba">
+      <span data-meta>2024 · Energy · Sinazongwe</span>
+      <span data-title>Maamba Energy Ground Breaking</span>
+      <span data-image>https://zda.org.zm/izic/wp-content/uploads/2026/01/WhatsApp-Image-2025-05-14-at-10.12.32_26448443-1024x683-1-768x660.jpg</span>
+      <div data-body>
+        <p>
+          Maamba Energy Limited (MEL) is one of Zambia’s largest Independent
+          Power Producers and operates the country’s largest thermal power plant
+          in Maamba, Sinazongwe district. MEL is a subsidiary of Nava Bharat
+          (Singapore), with remaining equity held by ZCCM-IH.
+        </p>
+        <p>
+          In 2024, MEL broke ground on a 300 MW Phase II thermal project that
+          doubles output to 600 MW. Two 150 MW plants are planned at a total cost
+          of USD 450 million, creating 433 jobs, with completion targeted for
+          July 2026.
+        </p>
+      </div>
+    </template>
+
+    <template id="card-data-bibagry">
+      <span data-meta>2024 · Beverages · Kitwe</span>
+      <span data-title>Bibagry Limited</span>
+      <span data-image>https://zda.org.zm/izic/wp-content/uploads/2026/01/Bibagry.jpeg-1024x768-1-768x660.jpg</span>
+      <div data-body>
+        <p>
+          Bibagry Limited, based in Kitwe on the Copperbelt, manufactures
+          non-alcoholic beverages. By 2024 it had actualised USD 27 million of a
+          USD 30 million commitment made in 2021, employing 125 Zambians against
+          114 committed jobs.
+        </p>
+        <p>
+          The company exports to the Democratic Republic of Congo, Tanzania, and
+          Botswana, supplies the local market, and supports community CSR
+          including water provision around Kamfinsa Correctional Facility.
+        </p>
+      </div>
+    </template>
+
+    <template id="card-data-bibagry-2021">
+      <span data-meta>2021 · Beverages · Kitwe</span>
+      <span data-title>Bibagry Limited — Investment Commitment</span>
+      <span data-image>https://zda.org.zm/izic/wp-content/uploads/2026/01/Bibagry.jpeg-1024x768-1-768x660.jpg</span>
+      <div data-body>
+        <p>
+          In 2021, Bibagry Limited committed USD 30 million to expand
+          non-alcoholic beverage manufacturing on the Copperbelt — a signal of
+          private-sector confidence in Zambia’s consumer and export markets.
+        </p>
+        <p>
+          By 2024 the company had actualised USD 27 million of that commitment,
+          employed 125 Zambians, and built regional export routes into the DRC,
+          Tanzania, and Botswana while investing in community water access
+          around Kamfinsa.
+        </p>
+      </div>
+    </template>
+
+    <div data-site-footer></div>
+    <script src="shared.js"></script>
+    <script src="main.js"></script>
+    <script src="cards.js"></script>
+  </body>
+</html>

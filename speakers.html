@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Speakers — IZIC 2026</title>
+    <link rel="icon" href="https://zda.org.zm/izic/wp-content/uploads/2026/01/cropped-IZIC-Event-Logo-files-01-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="speakers">
+    <div data-site-header></div>
+    <main id="main">
+      <section class="page-hero">
+        <div class="wrap">
+          <p class="eyebrow">Event Speakers</p>
+          <h1>Leaders shaping the agenda</h1>
+          <p>Select a speaker card for more detail.</p>
+        </div>
+      </section>
+      <section class="section">
+        <div class="wrap info-card-grid">
+          <button type="button" class="info-card" data-card-open="hh">
+            <img src="https://zda.org.zm/izic/wp-content/uploads/2026/01/President-Hakainde-Hichilema.jpg" alt="" />
+            <div>
+              <h2>Mr. Hakainde Hichilema</h2>
+              <p>President of the Republic of Zambia</p>
+              <span class="info-card-cta">View profile</span>
+            </div>
+          </button>
+          <button type="button" class="info-card" data-card-open="halwampa">
+            <img src="https://zda.org.zm/izic/wp-content/uploads/2026/01/DG-Zamra.jpg" alt="" />
+            <div>
+              <h2>Mr. Albert Halwampa</h2>
+              <p>Director General · ZDA</p>
+              <span class="info-card-cta">View profile</span>
+            </div>
+          </button>
+          <button type="button" class="info-card" data-card-open="asiama">
+            <img src="https://zda.org.zm/izic/wp-content/uploads/2026/01/Governer-Ghana.png" alt="" />
+            <div>
+              <h2>Dr Johnson Pandit Asiama</h2>
+              <p>Governor · Bank of Ghana</p>
+              <span class="info-card-cta">View profile</span>
+            </div>
+          </button>
+        </div>
+        <div class="wrap cta-row">
+          <a class="btn btn-primary" href="register.html">Register to attend</a>
+          <a class="btn btn-secondary" href="schedule.html">View schedule</a>
+        </div>
+      </section>
+    </main>
+
+    <div class="story-modal" hidden role="dialog" aria-modal="true" aria-labelledby="card-modal-title" data-card-modal>
+      <div class="story-modal-backdrop" data-card-close tabindex="-1"></div>
+      <div class="story-modal-panel" role="document">
+        <button type="button" class="story-modal-close" data-card-close aria-label="Close">×</button>
+        <div data-card-media><img class="story-modal-image" data-card-image alt="" /></div>
+        <div class="story-modal-content">
+          <span class="story-modal-meta" data-card-meta></span>
+          <h2 id="card-modal-title" data-card-title></h2>
+          <div class="story-modal-body" data-card-body></div>
+        </div>
+      </div>
+    </div>
+
+    <template id="card-data-hh">
+      <span data-meta>Guest of Honour</span>
+      <span data-title>Mr. Hakainde Hichilema</span>
+      <span data-image>https://zda.org.zm/izic/wp-content/uploads/2026/01/President-Hakainde-Hichilema.jpg</span>
+      <div data-body>
+        <p>President of the Republic of Zambia and Guest of Honour for IZIC — convening investors and partners around Zambia’s reform and investment agenda.</p>
+      </div>
+    </template>
+    <template id="card-data-halwampa">
+      <span data-meta>Zambia Development Agency</span>
+      <span data-title>Mr. Albert Halwampa</span>
+      <span data-image>https://zda.org.zm/izic/wp-content/uploads/2026/01/DG-Zamra.jpg</span>
+      <div data-body>
+        <p>Director General of the Zambia Development Agency, hosting IZIC as Zambia’s premier platform for trade, investment and business development.</p>
+      </div>
+    </template>
+    <template id="card-data-asiama">
+      <span data-meta>Confirmed speaker</span>
+      <span data-title>Dr Johnson Pandit Asiama</span>
+      <span data-image>https://zda.org.zm/izic/wp-content/uploads/2026/01/Governer-Ghana.png</span>
+      <div data-body>
+        <p>Governor of the Bank of Ghana — contributing regional finance leadership perspectives to the IZIC programme.</p>
+      </div>
+    </template>
+
+    <div data-site-footer></div>
+    <script src="shared.js"></script>
+    <script src="main.js"></script>
+    <script src="cards.js"></script>
+  </body>
+</html>

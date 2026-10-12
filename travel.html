@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel & Accommodation — IZIC 2026</title>
+    <link rel="icon" href="https://zda.org.zm/izic/wp-content/uploads/2026/01/cropped-IZIC-Event-Logo-files-01-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="travel">
+    <div data-site-header></div>
+    <main id="main">
+      <section class="page-hero">
+        <div class="wrap">
+          <p class="eyebrow">Travelers Info</p>
+          <h1>Hotels & visitor essentials</h1>
+          <p>Open a hotel card for booking codes and contacts.</p>
+        </div>
+      </section>
+      <section class="section">
+        <div class="wrap info-card-grid info-card-grid-compact">
+          <button type="button" class="info-card info-card-text" data-card-open="intercontinental">
+            <div>
+              <h2>InterContinental Lusaka</h2>
+              <p>Code ZDA07</p>
+              <span class="info-card-cta">View details</span>
+            </div>
+          </button>
+          <button type="button" class="info-card info-card-text" data-card-open="radisson">
+            <div>
+              <h2>Radisson Blu Hotel</h2>
+              <p>Special conference rates</p>
+              <span class="info-card-cta">View details</span>
+            </div>
+          </button>
+          <button type="button" class="info-card info-card-text" data-card-open="protea">
+            <div>
+              <h2>Protea Hotel by Marriott</h2>
+              <p>Code 2025ZDAIZICI50725</p>
+              <span class="info-card-cta">View details</span>
+            </div>
+          </button>
+          <button type="button" class="info-card info-card-text" data-card-open="hyatt">
+            <div>
+              <h2>Taj Pamodzi / Hyatt</h2>
+              <p>Mention IZIC for rates</p>
+              <span class="info-card-cta">View details</span>
+            </div>
+          </button>
+          <button type="button" class="info-card info-card-text" data-card-open="sarovar">
+            <div>
+              <h2>Sarovar Premiere</h2>
+              <p>Sales contact available</p>
+              <span class="info-card-cta">View details</span>
+            </div>
+          </button>
+          <button type="button" class="info-card info-card-text" data-card-open="ciela">
+            <div>
+              <h2>Ciela Resort</h2>
+              <p>Reservations contact</p>
+              <span class="info-card-cta">View details</span>
+            </div>
+          </button>
+          <button type="button" class="info-card info-card-text" data-card-open="peacock">
+            <div>
+              <h2>Golden Peacock Hotel</h2>
+              <p>Sales contact</p>
+              <span class="info-card-cta">View details</span>
+            </div>
+          </button>
+        </div>
+        <div class="wrap travel-links">
+          <a class="btn btn-secondary" href="map.html">Airport → venue map</a>
+          <a class="btn btn-secondary" href="tourism.html">Tourism packages</a>
+          <a class="btn btn-secondary" href="visas.html">Travel & visas</a>
+        </div>
+      </section>
+    </main>
+
+    <div class="story-modal" hidden role="dialog" aria-modal="true" aria-labelledby="card-modal-title" data-card-modal>
+      <div class="story-modal-backdrop" data-card-close tabindex="-1"></div>
+      <div class="story-modal-panel" role="document">
+        <button type="button" class="story-modal-close" data-card-close aria-label="Close">×</button>
+        <div data-card-media hidden><img class="story-modal-image" data-card-image alt="" hidden /></div>
+        <div class="story-modal-content">
+          <span class="story-modal-meta" data-card-meta></span>
+          <h2 id="card-modal-title" data-card-title></h2>
+          <div class="story-modal-body" data-card-body></div>
+        </div>
+      </div>
+    </div>
+
+    <template id="card-data-intercontinental">
+      <span data-meta>Accommodation · Lusaka</span>
+      <span data-title>InterContinental Lusaka</span>
+      <span data-image></span>
+      <div data-body>
+        <p>Booking code: <strong>ZDA07</strong></p>
+        <p><a href="mailto:reservations@lusakaic.com">reservations@lusakaic.com</a></p>
+      </div>
+    </template>
+    <template id="card-data-radisson">
+      <span data-meta>Accommodation · Lusaka</span>
+      <span data-title>Radisson Blu Hotel</span>
+      <span data-image></span>
+      <div data-body>
+        <p>Special rates are available for IZIC delegates. Ask the secretariat for the current Radisson Blu booking link when you register.</p>
+      </div>
+    </template>
+    <template id="card-data-protea">
+      <span data-meta>Accommodation · Lusaka</span>
+      <span data-title>Protea Hotel by Marriott</span>
+      <span data-image></span>
+      <div data-body>
+        <p>Booking code: <strong>2025ZDAIZICI50725</strong></p>
+        <p><a href="mailto:reservations@proteahotels.co.zm">reservations@proteahotels.co.zm</a></p>
+      </div>
+    </template>
+    <template id="card-data-hyatt">
+      <span data-meta>Accommodation · Lusaka</span>
+      <span data-title>Taj Pamodzi / Hyatt</span>
+      <span data-image></span>
+      <div data-body>
+        <p>Mention IZIC for special rates.</p>
+        <p><a href="mailto:oparebea.amoako@hyatt.com">oparebea.amoako@hyatt.com</a></p>
+      </div>
+    </template>
+    <template id="card-data-sarovar">
+      <span data-meta>Accommodation · Lusaka</span>
+      <span data-title>Sarovar Premiere</span>
+      <span data-image></span>
+      <div data-body>
+        <p><a href="mailto:sales1@neelkanthsarovarpremiere.com">sales1@neelkanthsarovarpremiere.com</a></p>
+      </div>
+    </template>
+    <template id="card-data-ciela">
+      <span data-meta>Accommodation · Lusaka</span>
+      <span data-title>Ciela Resort</span>
+      <span data-image></span>
+      <div data-body>
+        <p><a href="mailto:reservations@cielaresort.com">reservations@cielaresort.com</a></p>
+      </div>
+    </template>
+    <template id="card-data-peacock">
+      <span data-meta>Accommodation · Lusaka</span>
+      <span data-title>Golden Peacock Hotel</span>
+      <span data-image></span>
+      <div data-body>
+        <p><a href="mailto:goldenpeacocksales1@gmail.com">goldenpeacocksales1@gmail.com</a></p>
+      </div>
+    </template>
+
+    <div data-site-footer></div>
+    <script src="shared.js"></script>
+    <script src="main.js"></script>
+    <script src="cards.js"></script>
+  </body>
+</html>
