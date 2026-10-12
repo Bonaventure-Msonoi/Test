@@ -102,7 +102,7 @@
         </a>
         <nav class="nav-desktop" aria-label="Primary">${desktopNav}</nav>
         <div class="header-actions">
-          <a class="btn btn-primary btn-sm" href="register.html">Register</a>
+          <a class="btn btn-primary btn-sm header-cta" href="register.html">Register</a>
           <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" data-nav-toggle>
             <span class="sr-only">Menu</span><span></span><span></span>
           </button>

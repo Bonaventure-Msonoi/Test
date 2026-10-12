@@ -2,14 +2,32 @@
   const header = document.querySelector("[data-header]");
   const toggle = document.querySelector("[data-nav-toggle]");
   const mobileNav = document.querySelector("[data-mobile-nav]");
-  const countdownDisplay = document.querySelector("[data-countdown-display]");
   const eventDate = new Date("2026-12-09T09:00:00+02:00");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const isMobileNav = () => window.matchMedia("(max-width: 959px)").matches;
+  let lastScrollY = window.scrollY;
+  let scrollTicking = false;
 
   const syncHeader = () => {
     if (!header) return;
     const solid = header.classList.contains("is-solid");
-    header.classList.toggle("is-scrolled", solid || window.scrollY > 16);
+    const y = window.scrollY;
+    header.classList.toggle("is-scrolled", solid || y > 16);
+
+    // Mobile: hide on scroll down, show on scroll up
+    if (isMobileNav() && !header.classList.contains("is-open")) {
+      const delta = y - lastScrollY;
+      if (y < 48) {
+        header.classList.remove("is-hidden");
+      } else if (delta > 8) {
+        header.classList.add("is-hidden");
+      } else if (delta < -6) {
+        header.classList.remove("is-hidden");
+      }
+    } else {
+      header.classList.remove("is-hidden");
+    }
+    lastScrollY = y;
   };
 
   // Letter-stagger hero title (anime.js / portfolio greeting style)
@@ -71,6 +89,7 @@
   const openMobileNav = () => {
     if (!header || !toggle || !mobileNav) return;
     header.classList.add("is-open");
+    header.classList.remove("is-hidden");
     toggle.setAttribute("aria-expanded", "true");
     mobileNav.hidden = false;
     document.body.classList.add("nav-locked");
@@ -94,26 +113,57 @@
     if (window.innerWidth >= 960) closeMobileNav();
   });
 
-  window.addEventListener("scroll", syncHeader, { passive: true });
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (scrollTicking) return;
+      scrollTicking = true;
+      requestAnimationFrame(() => {
+        syncHeader();
+        scrollTicking = false;
+      });
+    },
+    { passive: true }
+  );
   syncHeader();
 
+  const pad = (n) => String(n).padStart(2, "0");
+
   const updateCountdown = () => {
-    if (!countdownDisplay) return;
-    const now = Date.now();
-    const diff = eventDate.getTime() - now;
+    const root = document.querySelector("[data-countdown]");
+    if (!root) return;
+
+    const daysEl = root.querySelector("[data-days]");
+    const hoursEl = root.querySelector("[data-hours]");
+    const minsEl = root.querySelector("[data-mins]");
+    const secsEl = root.querySelector("[data-secs]");
+    const legacy = root.querySelector("[data-countdown-display]");
+    const diff = eventDate.getTime() - Date.now();
 
     if (diff <= 0) {
-      countdownDisplay.textContent = "Event live";
+      if (daysEl) daysEl.textContent = "00";
+      if (hoursEl) hoursEl.textContent = "00";
+      if (minsEl) minsEl.textContent = "00";
+      if (secsEl) secsEl.textContent = "00";
+      if (legacy) legacy.textContent = "Event live";
+      root.classList.add("is-live");
       return;
     }
 
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
     const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    countdownDisplay.textContent = `${days}d ${hours}h`;
+    const mins = Math.floor((diff / (1000 * 60)) % 60);
+    const secs = Math.floor((diff / 1000) % 60);
+
+    if (daysEl) daysEl.textContent = pad(days);
+    if (hoursEl) hoursEl.textContent = pad(hours);
+    if (minsEl) minsEl.textContent = pad(mins);
+    if (secsEl) secsEl.textContent = pad(secs);
+    if (legacy) legacy.textContent = `${days}d ${hours}h ${mins}m`;
   };
 
   updateCountdown();
-  window.setInterval(updateCountdown, 60_000);
+  window.setInterval(updateCountdown, 1000);
 
   const formatCount = (value, el) => {
     const prefix = el.dataset.prefix || "";
