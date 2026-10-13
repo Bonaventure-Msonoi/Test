@@ -221,9 +221,10 @@
     return rect.top < viewH - 24 && rect.bottom > 24;
   };
 
-  // "From promotion to transactions" figures — observe each card, not the
-  // opacity-0 wrapper (that pattern often fails on mobile Safari).
-  const forecastFigures = document.querySelectorAll(".target [data-count]");
+  // Animated figures — forecast cards + home statement stats
+  const forecastFigures = document.querySelectorAll(
+    ".target [data-count], .statement-stat [data-count], .about-card-stat [data-count], .about-card-stat strong[data-count]"
+  );
   forecastFigures.forEach((el) => {
     if (!reduceMotion) el.textContent = formatCount(0, el);
   });
@@ -237,8 +238,10 @@
   const watchForecast = () => {
     if (!forecastFigures.length) return;
 
-    const cards = document.querySelectorAll(".target");
-    const section = document.querySelector("#forecast, .section.forecast, .targets");
+    const cards = document.querySelectorAll(".target, .statement-stat, .about-card-stat");
+    const section = document.querySelector(
+      "#forecast, .section.forecast, .targets, .home-statement, .statement-stats, .about-card-stack, .about-highlight-grid"
+    );
 
     if ("IntersectionObserver" in window) {
       const countObserver = new IntersectionObserver(
@@ -345,6 +348,131 @@
     window.addEventListener("touchmove", rescue, { passive: true });
   } else {
     revealTargets.forEach((el) => reveal(el));
+  }
+
+  // Sliding hero banners
+  const heroSlider = document.querySelector("[data-hero-slider]");
+  if (heroSlider) {
+    const slides = [...heroSlider.querySelectorAll("[data-hero-slide]")];
+    const dots = [...heroSlider.querySelectorAll("[data-hero-dot]")];
+    let index = Math.max(
+      0,
+      slides.findIndex((slide) => slide.classList.contains("is-active"))
+    );
+    let timer = 0;
+    const intervalMs = 6500;
+
+    const status = heroSlider.querySelector("[data-hero-status]");
+
+    const showSlide = (nextIndex) => {
+      if (!slides.length) return;
+      index = ((nextIndex % slides.length) + slides.length) % slides.length;
+      slides.forEach((slide, i) => {
+        const active = i === index;
+        slide.classList.toggle("is-active", active);
+        slide.setAttribute("aria-hidden", active ? "false" : "true");
+      });
+      dots.forEach((dot, i) => {
+        const active = i === index;
+        dot.classList.toggle("is-active", active);
+        if (active) dot.setAttribute("aria-current", "true");
+        else dot.removeAttribute("aria-current");
+      });
+      if (status) {
+        status.textContent = `Showing banner ${index + 1} of ${slides.length}`;
+      }
+    };
+
+    const stopAuto = () => {
+      if (timer) window.clearInterval(timer);
+      timer = 0;
+    };
+
+    const startAuto = () => {
+      stopAuto();
+      if (reduceMotion || slides.length < 2) return;
+      timer = window.setInterval(() => showSlide(index + 1), intervalMs);
+    };
+
+    heroSlider.addEventListener("click", (event) => {
+      const dot = event.target.closest("[data-hero-dot]");
+      if (!dot || !heroSlider.contains(dot)) return;
+      const target = Number(dot.getAttribute("data-hero-dot"));
+      if (!Number.isFinite(target)) return;
+      showSlide(target);
+      startAuto();
+    });
+
+    heroSlider.addEventListener("mouseenter", stopAuto);
+    heroSlider.addEventListener("mouseleave", startAuto);
+    heroSlider.addEventListener("focusin", stopAuto);
+    heroSlider.addEventListener("focusout", (event) => {
+      if (!heroSlider.contains(event.relatedTarget)) startAuto();
+    });
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) stopAuto();
+      else startAuto();
+    });
+
+    showSlide(index);
+    startAuto();
+  }
+
+  // Registration popup
+  const registerModal = document.querySelector("[data-register-modal]");
+  if (registerModal) {
+    const form = registerModal.querySelector("[data-register-form]");
+    const note = registerModal.querySelector("[data-register-note]");
+    let lastFocus = null;
+
+    const openRegister = () => {
+      lastFocus = document.activeElement;
+      registerModal.hidden = false;
+      document.body.classList.add("register-modal-open");
+      requestAnimationFrame(() => registerModal.classList.add("is-open"));
+      registerModal.querySelector(".register-modal-close")?.focus();
+    };
+
+    const closeRegister = () => {
+      registerModal.classList.remove("is-open");
+      document.body.classList.remove("register-modal-open");
+      window.setTimeout(() => {
+        registerModal.hidden = true;
+        if (note) note.hidden = true;
+        lastFocus?.focus?.();
+      }, 220);
+    };
+
+    document.addEventListener("click", (event) => {
+      if (event.target.closest("[data-register-open]")) {
+        event.preventDefault();
+        openRegister();
+        return;
+      }
+      const link = event.target.closest('a[href="register.html"], a[href="./register.html"]');
+      if (!link) return;
+      event.preventDefault();
+      openRegister();
+    });
+
+    registerModal.querySelectorAll("[data-register-close]").forEach((el) => {
+      el.addEventListener("click", closeRegister);
+    });
+
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !registerModal.hidden) closeRegister();
+    });
+
+    form?.addEventListener("submit", (event) => {
+      event.preventDefault();
+      if (note) note.hidden = false;
+      form.reset();
+    });
+
+    if (document.body.dataset.page === "register") {
+      openRegister();
+    }
   }
 })();
 

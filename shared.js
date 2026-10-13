@@ -3,21 +3,15 @@
   const current = (location.pathname.split("/").pop() || "index.html").toLowerCase();
 
   const navItems = [
-    {
-      label: "Conference",
-      children: [
-        { label: "About IZIC", href: "about.html" },
-        { label: "Events Schedule", href: "schedule.html" },
-        { label: "Partnership", href: "partnership.html" },
-        { label: "Event Speakers", href: "speakers.html" },
-        { label: "Presidential Awards", href: "awards.html" },
-        { label: "2025 Highlights", href: "gallery.html" },
-      ],
-    },
+    { label: "About", href: "about.html" },
+    { label: "Schedule", href: "schedule.html" },
+    { label: "Speakers", href: "speakers.html" },
+    { label: "Projects", href: "projects.html" },
+    { label: "Partnership", href: "partnership.html" },
+    { label: "News", href: "news.html" },
     {
       label: "Invest",
       children: [
-        { label: "Ready to Invest Projects", href: "projects.html" },
         { label: "Priority Sectors", href: "sectors.html" },
         { label: "Investment Incentives", href: "incentives.html" },
         { label: "Registering a Business", href: "business.html" },
@@ -27,11 +21,9 @@
     {
       label: "Media",
       children: [
-        { label: "Publications", href: "publications.html" },
-        { label: "Presentations", href: "presentations.html" },
-        { label: "News & Press", href: "news.html" },
         { label: "Photo Gallery", href: "gallery.html" },
         { label: "Videos", href: "videos.html" },
+        { label: "Presidential Awards", href: "awards.html" },
       ],
     },
     {
@@ -41,7 +33,6 @@
         { label: "Route / Map", href: "map.html" },
         { label: "Travel & Visas", href: "visas.html" },
         { label: "Tourism Packages", href: "tourism.html" },
-        { label: "IZIC App", href: "app.html" },
       ],
     },
     { label: "Contact", href: "contact.html" },
@@ -119,12 +110,12 @@
       <div class="wrap footer-slim">
         <div class="footer-slim-brand">
           <img src="https://zda.org.zm/vs/izic/wp-content/uploads/2022/09/zda_logo_white_website.png" alt="Zambia Development Agency" width="140" height="42" />
-          <nav aria-label="Footer">
-            <a href="about.html">About</a>
-            <a href="register.html">Register</a>
-            <a href="contact.html">Contact</a>
-            <a href="sitemap.html">Sitemap</a>
-          </nav>
+          <div class="footer-contact">
+            <p><strong>IZIC Secretariat</strong></p>
+            <p><a href="mailto:izic@zda.org.zm">izic@zda.org.zm</a></p>
+            <p><a href="tel:+260211220177">+260 211 220177</a></p>
+            <p>Kenneth Kaunda International Conference Centre · Lusaka</p>
+          </div>
         </div>
         <div class="footer-powered">
           <a class="footer-sandbox" href="https://sandbox.africa/" target="_blank" rel="noopener noreferrer">
@@ -137,10 +128,75 @@
       </div>
     </footer>`;
 
+  const notice = `
+    <section class="notice notice-slim" aria-label="Important update" data-site-notice>
+      <div class="wrap notice-inner">
+        <p>
+          <strong>Updated dates:</strong> 9–11 December 2026 at Kenneth Kaunda International Conference Centre · Existing registrations remain valid.
+        </p>
+        <a href="news.html#postponement">Details</a>
+      </div>
+    </section>`;
+
+  const registerModal = `
+    <div class="register-modal" hidden role="dialog" aria-modal="true" aria-labelledby="register-modal-title" data-register-modal>
+      <div class="register-modal-backdrop" data-register-close tabindex="-1"></div>
+      <div class="register-modal-panel" role="document">
+        <button type="button" class="register-modal-close" data-register-close aria-label="Close registration">×</button>
+        <div class="register-modal-layout">
+          <aside class="register-modal-aside">
+            <p class="eyebrow">IZIC 2026</p>
+            <h2 id="register-modal-title">Join us in Lusaka</h2>
+            <p class="register-modal-date">9–11 December 2026 · Kenneth Kaunda International Conference Centre</p>
+            <ul class="register-modal-list">
+              <li>Investors and financiers</li>
+              <li>Project developers and exhibitors</li>
+              <li>Policymakers and development partners</li>
+              <li>Local enterprises seeking partnerships</li>
+            </ul>
+            <p class="register-modal-note">
+              Confirmed July registrations remain valid for 9–11 December. No re-registration is required for already confirmed delegates.
+            </p>
+            <div class="register-modal-links">
+              <a href="partnership.html">Become a partner</a>
+              <a href="contact.html">Ask the secretariat</a>
+            </div>
+          </aside>
+          <form class="register-form register-modal-form" data-register-form>
+            <h3>Expression of interest</h3>
+            <label>Full name<input type="text" name="name" required autocomplete="name" /></label>
+            <label>Organisation<input type="text" name="org" required autocomplete="organization" /></label>
+            <label>Email<input type="email" name="email" required autocomplete="email" /></label>
+            <label>Country<input type="text" name="country" required autocomplete="country-name" /></label>
+            <label>Participation type
+              <select name="type" required>
+                <option value="">Select…</option>
+                <option>Delegate</option>
+                <option>Exhibitor</option>
+                <option>Sponsor / Partner</option>
+                <option>Media</option>
+              </select>
+            </label>
+            <label>Message<textarea name="message" rows="3" placeholder="Tell us briefly about your interest"></textarea></label>
+            <button class="btn btn-primary" type="submit">Submit interest</button>
+            <p class="form-note" data-register-note hidden>
+              Thank you — your interest has been recorded for this demo. Contact
+              <a href="mailto:izic@zda.org.zm">izic@zda.org.zm</a> to complete official registration.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>`;
+
   const headerMount = document.querySelector("[data-site-header]");
   const footerMount = document.querySelector("[data-site-footer]");
+  const noticeMount = document.querySelector("[data-site-notice]");
   if (headerMount) headerMount.outerHTML = header;
   if (footerMount) footerMount.outerHTML = footer;
+  if (noticeMount) noticeMount.outerHTML = notice;
+  if (!document.querySelector("[data-register-modal]")) {
+    document.body.insertAdjacentHTML("beforeend", registerModal);
+  }
   if (page !== "home") {
     document.querySelector("[data-header]")?.classList.add("is-scrolled", "is-solid");
   }
