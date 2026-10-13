@@ -178,11 +178,10 @@
               </select>
             </label>
             <label>Message<textarea name="message" rows="3" placeholder="Tell us briefly about your interest"></textarea></label>
-            <button class="btn btn-primary" type="submit">Submit interest</button>
-            <p class="form-note" data-register-note hidden>
-              Thank you — your interest has been recorded for this demo. Contact
-              <a href="mailto:izic@zda.org.zm">izic@zda.org.zm</a> to complete official registration.
-            </p>
+            <label style="position:absolute;left:-9999px;" aria-hidden="true">Website<input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+            <button class="btn btn-primary" type="submit" data-register-submit>Submit interest</button>
+            <p class="form-note" data-register-note hidden></p>
+            <p class="form-note form-note-error" data-register-error hidden></p>
           </form>
         </div>
       </div>

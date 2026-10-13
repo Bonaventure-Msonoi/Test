@@ -424,6 +424,11 @@
   if (registerModal) {
     const form = registerModal.querySelector("[data-register-form]");
     const note = registerModal.querySelector("[data-register-note]");
+    const errorNote = registerModal.querySelector("[data-register-error]");
+    const submitBtn = registerModal.querySelector("[data-register-submit]");
+    const apiBase = window.location.pathname.includes("/izic")
+      ? "/izic/api"
+      : "/api";
     let lastFocus = null;
 
     const openRegister = () => {
@@ -439,7 +444,14 @@
       document.body.classList.remove("register-modal-open");
       window.setTimeout(() => {
         registerModal.hidden = true;
-        if (note) note.hidden = true;
+        if (note) {
+          note.hidden = true;
+          note.textContent = "";
+        }
+        if (errorNote) {
+          errorNote.hidden = true;
+          errorNote.textContent = "";
+        }
         lastFocus?.focus?.();
       }, 220);
     };
@@ -464,10 +476,66 @@
       if (event.key === "Escape" && !registerModal.hidden) closeRegister();
     });
 
-    form?.addEventListener("submit", (event) => {
+    form?.addEventListener("submit", async (event) => {
       event.preventDefault();
-      if (note) note.hidden = false;
-      form.reset();
+      if (note) {
+        note.hidden = true;
+        note.textContent = "";
+      }
+      if (errorNote) {
+        errorNote.hidden = true;
+        errorNote.textContent = "";
+      }
+
+      const fd = new FormData(form);
+      const payload = {
+        name: String(fd.get("name") || "").trim(),
+        org: String(fd.get("org") || "").trim(),
+        email: String(fd.get("email") || "").trim(),
+        country: String(fd.get("country") || "").trim(),
+        type: String(fd.get("type") || "").trim(),
+        message: String(fd.get("message") || "").trim(),
+        website: String(fd.get("website") || "").trim(),
+      };
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Submitting…";
+      }
+
+      try {
+        const res = await fetch(`${apiBase}/registrations`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) {
+          throw new Error(
+            data.error ||
+              "Unable to submit your request right now. Please try again or email izic@zda.org.zm."
+          );
+        }
+        form.reset();
+        if (note) {
+          note.hidden = false;
+          note.textContent =
+            data.message ||
+            "Your request has been submitted. You will receive an official email within 24 working hours.";
+        }
+      } catch (err) {
+        if (errorNote) {
+          errorNote.hidden = false;
+          errorNote.textContent =
+            err.message ||
+            "Unable to submit your request right now. Please try again or email izic@zda.org.zm.";
+        }
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Submit interest";
+        }
+      }
     });
 
     if (document.body.dataset.page === "register") {

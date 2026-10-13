@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IZIC Admin — Registrations</title>
+    <meta name="robots" content="noindex,nofollow" />
+    <link
+      rel="icon"
+      href="https://zda.org.zm/izic/wp-content/uploads/2026/01/cropped-IZIC-Event-Logo-files-01-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=reg-api" />
+    <link rel="stylesheet" href="admin.css?v=admin-reg" />
+  </head>
+  <body class="admin-page">
+    <main class="admin-shell">
+      <section class="admin-login" data-admin-login>
+        <div class="admin-card">
+          <p class="eyebrow">IZIC 2026</p>
+          <h1>Registration inbox</h1>
+          <p class="admin-lead">Sign in to review expressions of interest and reply by email.</p>
+          <form data-admin-login-form>
+            <label>
+              Admin password
+              <input type="password" name="password" required autocomplete="current-password" />
+            </label>
+            <button class="btn btn-primary" type="submit">Sign in</button>
+            <p class="form-note admin-error" data-admin-login-error hidden></p>
+          </form>
+        </div>
+      </section>
+
+      <section class="admin-app" data-admin-app hidden>
+        <header class="admin-top">
+          <div>
+            <p class="eyebrow">IZIC 2026 Admin</p>
+            <h1>Registration requests</h1>
+          </div>
+          <div class="admin-top-actions">
+            <button type="button" class="btn btn-secondary btn-sm" data-admin-refresh>Refresh</button>
+            <button type="button" class="btn btn-ghost btn-sm" data-admin-logout>Sign out</button>
+          </div>
+        </header>
+
+        <div class="admin-layout">
+          <aside class="admin-list" data-admin-list aria-label="Registrations"></aside>
+          <section class="admin-detail" data-admin-detail>
+            <p class="admin-empty">Select a registration to review and respond.</p>
+          </section>
+        </div>
+      </section>
+    </main>
+    <script src="admin.js?v=admin-reg"></script>
+  </body>
+</html>

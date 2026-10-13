@@ -3827,6 +3827,10 @@ body.story-modal-open {
   color: var(--copper-deep);
 }
 
+.form-note-error {
+  color: var(--copper-deep);
+}
+
 /* Registration popup */
 body.register-modal-open {
   overflow: hidden;
